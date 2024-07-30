@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = import.meta.env.API_URL || 'http://localhost:3000';
+const URL = process.env.API_URL || 'http://localhost:3000';
 
 export const getAllProducts = async () => {
     try {
