@@ -77,7 +77,9 @@ const ProductDetail = () => {
                 Remove from Cart
               </button>
             )}
-            <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded">
+            <button
+              onClick={() => buyNow(product.name)}
+              className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded">
               Buy Now
             </button>
           </div>
