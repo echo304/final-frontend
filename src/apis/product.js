@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const URL = process.env.API_URL || 'http://localhost:3000';
 
+
 export const getAllProducts = async () => {
     try {
         const response = await axios.get(`${URL}/products`);
