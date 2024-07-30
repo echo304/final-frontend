@@ -35,6 +35,18 @@ const ProductDetail = () => {
     showToast(`${product.name} has been added to your cart!`);
   };
 
+  const removeFromCart = (id) => {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const updatedCart = cart.filter(item => item.id !== id);
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    setIsInCart(false);
+    showToast(`${product.name} has been removed from your cart.`);
+  };
+
+  const buyNow = (productName) => {
+    showToast(`Thank you for purchasing ${productName}!`);
+  };
+
   if (!product) return <div>Loading...</div>;
 
   return (
@@ -60,9 +72,9 @@ const ProductDetail = () => {
               </button>
             ) : (
               <button
-                disabled
+                onClick={() => removeFromCart(product.id)}
                 className="bg-gray-500 text-white font-bold py-2 px-4 rounded">
-                Already in Cart
+                Remove from Cart
               </button>
             )}
             <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded">
